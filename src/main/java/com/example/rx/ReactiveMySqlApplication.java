@@ -54,6 +54,18 @@ public class ReactiveMySqlApplication {
 			.then();
 	}
 
+
+	@Data
+	@AllArgsConstructor
+	@NoArgsConstructor
+	static class Order {
+
+		private Long id;
+		private String name;
+	}
+
+
+
 	public static void main(String[] args) throws Exception {
 		String url = "mysql://orders:orders@127.0.0.1:3306/orders";
 		Configuration configuration = URLParser.INSTANCE.parseOrDie(url, StandardCharsets.UTF_8);
@@ -78,15 +90,5 @@ public class ReactiveMySqlApplication {
 		Thread.sleep(1000);
 	}
 }
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class Order {
-
-	private Long id;
-	private String name;
-}
-
 
 
